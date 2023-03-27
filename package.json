@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "gh-page -d build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "npm run test -- --coverage --watchAll=false",
