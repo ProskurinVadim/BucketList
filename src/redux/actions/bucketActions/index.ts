@@ -5,7 +5,7 @@ import { Configuration, OpenAIApi } from "openai";
 import dumpAxios from "../../../utils/dumpAxios";
 import { Dispatch } from "redux";
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
 
 const loadWrapper = (dispatch: Dispatch<BucketType>,actions: any) => {
     dispatch(loadbucketAction(true));
