@@ -1,6 +1,6 @@
 import { bucketActions } from "../../actionsNames";
 import { BucketType } from "../../actions/bucketActions/types";
-import { IListItem } from "types";
+import { IListItem } from "../../../types";
 const initialState = {
     items: [],
     loading : false,

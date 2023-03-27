@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 
-import { ICondition } from "types";
+import { ICondition } from "../../types";
 
 import If from "./If";
 import ElseIf from "./ElseIf";

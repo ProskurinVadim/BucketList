@@ -1,9 +1,10 @@
 import { bucketActions } from "../../actionsNames";
 import { ItemsError, ItemsDelete, ItemsLoading, ItemsFavor, ItemsDeleteAll, ItemAdd, SetItems, BucketType } from "./types"
-import { IListItem } from "types";
+import { IListItem } from "../../../types";
 import { Configuration, OpenAIApi } from "openai";
-import dumpAxios from "utils/dumpAxios";
+import dumpAxios from "../../../utils/dumpAxios";
 import { Dispatch } from "redux";
+
 const OPENAI_API_KEY = "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";
 
 const loadWrapper = (dispatch: Dispatch<BucketType>,actions: any) => {

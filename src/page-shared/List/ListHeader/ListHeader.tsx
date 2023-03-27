@@ -1,9 +1,9 @@
 import { useState, FC } from "react";
 import SortField from "./SortField";
-import { useInput } from "hooks/useInpur";
-import { Input, Button } from "components/common";
-import { numberValidator, lettersValidator } from "utils/validate";
-import { ISort } from "types";
+import { useInput } from "../../../hooks/useInpur";
+import { Input, Button } from "../../../components/common";
+import { numberValidator, lettersValidator } from "../../../utils/validate";
+import { ISort } from "../../../types";
 
 interface IListHeader {
     onAdd: (name:string, amount: number) => void,

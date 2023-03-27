@@ -2,8 +2,8 @@ import { FC } from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Star, Trash } from "components/common";
-import { IListItem } from "types";
+import { Star, Trash } from "../../../components/common";
+import { IListItem } from "../../../types";
 import Image from 'react-bootstrap/Image'
 
 interface IItem {

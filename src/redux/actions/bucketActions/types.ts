@@ -1,5 +1,5 @@
 import { bucketActions } from "../../actionsNames";
-import { IListItem } from "types";
+import { IListItem } from "../../../types";
 
 export interface SetItems {
 	type: typeof bucketActions.SET_ITEMS;

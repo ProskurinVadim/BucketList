@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import List from "page-shared/List";
+import List from "../../page-shared/List";
 import Container from 'react-bootstrap/Container';
 import { deleteItem, flavorItems, deleteAllItems, addItem } from "../../redux/actions/bucketActions";
 

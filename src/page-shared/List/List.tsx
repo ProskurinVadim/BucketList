@@ -2,11 +2,11 @@ import { FC } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListItem from "./ListItem";
 import ListHeader from "./ListHeader";
-import { IListItem } from "types";
+import { IListItem } from "../../types";
 import { Button } from "../../components/common";
-import {useSort} from "hooks/useSort"
-import Condition, { If, Else } from "hoc/Conditional/Condition";
-import Loadable from "hoc/Loadable";
+import {useSort} from "../../hooks/useSort"
+import Condition, { If, Else } from "../../hoc/Conditional/Condition";
+import Loadable from "../../hoc/Loadable";
 
 interface IList {
 	loading: boolean,

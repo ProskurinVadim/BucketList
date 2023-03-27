@@ -2,7 +2,7 @@ import { FC } from "react";
 import Condition from "../Conditional/Condition";
 import If from "../Conditional/If";
 import Else from "../Conditional/Else";
-import { Spiner } from "components/common"
+import { Spiner } from "../../components/common"
 
 interface ILoadable {
     loading: boolean,

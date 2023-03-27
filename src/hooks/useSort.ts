@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 
-import { itemSort } from "utils/sort";
-import { IListItem } from "types";
+import { itemSort } from "../utils/sort";
+import { IListItem } from "../types";
 
 
 export const useSort = (data: IListItem[]) => {
