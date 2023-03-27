@@ -33,7 +33,7 @@ const generateDescription = async (name: string, openai: any) => {
 
 const generateImage = async (name: string, openai: any) => {
     const response = await openai.createImage({
-        prompt: `grocery  ${name}`,
+        prompt: `grocery ${name}`,
         n: 1,
         size: "1024x1024",
     });
