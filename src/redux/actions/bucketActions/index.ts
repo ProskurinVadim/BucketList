@@ -44,14 +44,21 @@ const generateImage = async (name: string, openai: any) => {
 
 export const addItem = (name: string, amount: number) => async (dispatch: Dispatch<BucketType>) => {
     dispatch(loadbucketAction(true));
-    const configuration = new Configuration({
-        apiKey: OPENAI_API_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
-    const description: any = await generateDescription(name, openai);
-    const image: any = await generateImage(name, openai);
-    dispatch(loadbucketAction(false));
-    dispatch(addBucketAction(name, amount, description, image));
+    try {
+        const configuration = new Configuration({
+            apiKey: OPENAI_API_KEY,
+        });
+        const openai = new OpenAIApi(configuration);
+        const description: any = await generateDescription(name, openai);
+        const image: any = await generateImage(name, openai);
+
+        dispatch(loadbucketAction(false));
+        dispatch(addBucketAction(name, amount, description, image));
+    }
+    catch (error) {
+        console.log(error)
+        dispatch(loadbucketAction(false));
+    }
 }
 
 export const deleteItem = (id: number) => (dispatch: Dispatch<BucketType>) => {
