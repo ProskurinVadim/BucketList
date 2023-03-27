@@ -2,10 +2,12 @@ import { bucketActions } from "../../actionsNames";
 import { ItemsError, ItemsDelete, ItemsLoading, ItemsFavor, ItemsDeleteAll, ItemAdd, SetItems, BucketType } from "./types"
 import { IListItem } from "../../../types";
 import { Configuration, OpenAIApi } from "openai";
+import os from "os";
+
 import dumpAxios from "../../../utils/dumpAxios";
 import { Dispatch } from "redux";
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "iHNQa1gbqkq1aIsic8OVT3BlbkFJvlrMY5Yb7m5eyBk8uyil";
 
 const loadWrapper = (dispatch: Dispatch<BucketType>,actions: any) => {
     dispatch(loadbucketAction(true));
@@ -46,7 +48,7 @@ export const addItem = (name: string, amount: number) => async (dispatch: Dispat
     dispatch(loadbucketAction(true));
     try {
         const configuration = new Configuration({
-            apiKey: OPENAI_API_KEY,
+            apiKey: "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",
         });
         const openai = new OpenAIApi(configuration);
         const description: any = await generateDescription(name, openai);
