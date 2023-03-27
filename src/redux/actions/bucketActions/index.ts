@@ -5,7 +5,6 @@ import { Configuration, OpenAIApi } from "openai";
 import dumpAxios from "../../../utils/dumpAxios";
 import { Dispatch } from "redux";
 
-const OPENAI_API_KEY = "";
 
 const loadWrapper = (dispatch: Dispatch<BucketType>,actions: any) => {
     dispatch(loadbucketAction(true));
@@ -46,7 +45,7 @@ export const addItem = (name: string, amount: number) => async (dispatch: Dispat
     dispatch(loadbucketAction(true));
     try {
         const configuration = new Configuration({
-            apiKey: process.env.OPENAI_API_KEY,
+            apiKey: "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",
         });
         const openai = new OpenAIApi(configuration);
         const description: any = await generateDescription(name, openai);
