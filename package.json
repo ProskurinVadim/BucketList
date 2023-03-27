@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "npm run test -- --coverage --watchAll=false",
-    "eject": "react-scripts eject",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
