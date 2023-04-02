@@ -5,7 +5,8 @@ interface ICondition {
 
 interface ISort {
     direction: "asc" | "desc",
-    key: "string"
+    key: string,
+    type: "" | "bucket"
 }
 
 interface IListItem {

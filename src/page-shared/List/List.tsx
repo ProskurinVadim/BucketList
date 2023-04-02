@@ -18,14 +18,14 @@ interface IList {
 }
 
 const List: FC<IList> = ({ onDelete, onFavorites, onDeleteAll, onAdd, items, loading }) => {
-
 	const { sort, setSort, data } = useSort(items);
+	const handelSort = (name:string) => setSort(name, "bucket")
 	return (
 		<div>
 			<h1 className=".fs-1 text pt-2 pb-2 text-primary">Welcome to your bucket</h1>
-			<ListHeader sort={sort} setSort={setSort} onAdd={onAdd} loading={loading}/>
+			<ListHeader sort={sort} setSort={handelSort} onAdd={onAdd} loading={loading}/>
 			<Loadable loading={loading}>
-				<Condition condition={data.length}>
+				<Condition condition={Boolean(data.length)}>
 					<If>
 						<ListGroup variant="flush" className="overflow-auto" style={{ height: "50vh" }}>
 							{data.map((item: IListItem, i: number) =>

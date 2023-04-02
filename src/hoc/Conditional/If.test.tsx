@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { If } from "./Condition";
 import '@testing-library/jest-dom';
 
-describe("Test If component ", () => {
+describe("If component test", () => {
 	it("should return children", () => {
 		render(<If>Children</If>);
 

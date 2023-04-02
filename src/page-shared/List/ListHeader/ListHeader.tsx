@@ -27,8 +27,10 @@ const ListHeader: FC<IListHeader> = ({ setSort, sort, onAdd, loading }) => {
         } else if (amountValidate()) {
             setError(() => "amount must contain only numbers");
         } else {
-            setError(()=> "")
-            onAdd(nameBind.value, Number(amountBind.value));
+            setError(() => "")
+            // Addet capitalaze for first letter to avoid sorting uper and lower case letters
+            const name = nameBind.value.charAt(0).toUpperCase() + nameBind.value.slice(1)
+            onAdd(name, Number(amountBind.value));
             nameReset();
             amountReset();
         }

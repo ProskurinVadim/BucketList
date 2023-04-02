@@ -1,15 +1,18 @@
 import { FC, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "redux";
 import List from "../../page-shared/List";
 import Container from 'react-bootstrap/Container';
+import { RootState, RootDispatch } from "../../redux/store";
+import { BucketType } from "../../redux/actions/bucketActions/types";
+import { IListItem } from "../../types";
 import { deleteItem, flavorItems, deleteAllItems, addItem } from "../../redux/actions/bucketActions";
-
 
 const BucketPage: FC = () => {
 
-    const { items, loading } = useSelector((state: any) => state.buket_list);
+    const { items, loading } = useSelector<RootState, { loading: boolean, items: IListItem[]}>((state: any) => state.buket_list);
 
-    const dispatch: any = useDispatch();
+    const dispatch:any= useDispatch<Dispatch<BucketType>>();
 
     const handelAdd = useCallback((name: string, amount: number) => dispatch(addItem(name, amount)),[]);
     const handelDelete = useCallback((id: number) => dispatch(deleteItem(id)),[]);

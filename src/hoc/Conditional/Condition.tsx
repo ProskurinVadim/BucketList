@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React,{FC,useCallback} from 'react';
 
 import { ICondition } from "../../types";
 
@@ -6,16 +6,24 @@ import If from "./If";
 import ElseIf from "./ElseIf";
 import Else from "./Else";
 
-const Condition: any = ({ children, condition }: { children: React.ReactNode, condition: boolean }) => {
+// added types for hoc that I foget to add before
 
-    const findChild = useCallback((MatchComponent: any) => (
+const Condition: FC<ICondition> = ({ children, condition }) => {
+
+    const findChild = useCallback((MatchComponent: FC<ICondition>) => (
         React
             .Children
             .toArray(children)
-            .find((child: any ) => child.type === MatchComponent && (MatchComponent !== ElseIf || child.props.condition))
+            .find((child: React.ReactNode) => {
+                if (React.isValidElement(child)) {
+                    return child.type === MatchComponent && (MatchComponent !== ElseIf || child.props.condition)
+                }
+            })
     ), [children]);
 
-    return condition ? findChild(If) : (findChild(ElseIf) || findChild(Else) || <></>);
+    return <>
+        {condition ? findChild(If) : (findChild(ElseIf) || findChild(Else))}
+    </>;
 };
 
 export {If, ElseIf, Else}

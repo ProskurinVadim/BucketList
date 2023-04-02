@@ -6,8 +6,14 @@ const initialState = {
     loading : false,
     error : "",
 };
+// Add type for  Bucket Reducer 
+export interface IBucketState {
+    items: IListItem[] | [],
+    loading: boolean,
+    error: string
+}
 
-export default function (state = initialState, action: BucketType) {
+export default function (state: IBucketState = initialState, action: BucketType) {
     switch (action.type) {
         case bucketActions.ADD_ITEM: {
             const { name, amount, image, description } = action.payload;

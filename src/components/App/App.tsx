@@ -1,4 +1,4 @@
-import { Suspense,lazy,FC } from "react";
+import { Suspense, lazy, FC } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 const BucketPage = lazy(() => import('../../pages/BucketPage'));
