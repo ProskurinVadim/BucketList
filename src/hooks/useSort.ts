@@ -1,10 +1,10 @@
 import { useState, useCallback, useMemo } from "react";
 
 import { SortFunction } from "../utils/sort";
-import { IListItem, ISort} from "../types";
+import { ISort} from "../types";
 
 
-export const useSort = (data: IListItem[]) => {
+export const useSort = (data: any[]) => {
 
     // add type for making this hook reusable
     const [sort, setSort] = useState<ISort>({ direction:"asc", key:"", type:""});
@@ -21,7 +21,6 @@ export const useSort = (data: IListItem[]) => {
     
 
     const sortedData = useMemo(() => data.length ? data.sort((a, b) => SortFunction(sort.type,a, b, sort.direction,sort.key)) : data, [data, sort]);
-
     return {
         sort,
         setSort : handelSetSort,

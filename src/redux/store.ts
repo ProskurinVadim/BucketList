@@ -1,4 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import { DispatchBucetsType } from "./actions/bucketActions"
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+
 import { persistStore } from 'redux-persist';
 import thunk from "redux-thunk";
 import persisterReducer from "./reducer";
@@ -21,5 +24,6 @@ export type RootState = ReturnType<typeof store.getState>;
 // Add root dispatch for useSelector
 export type RootDispatch = typeof store.dispatch
 export type RootDispatchhFunc = () => RootDispatch
+export const useAppDispatch: RootDispatchhFunc = useDispatch
 const persistor = persistStore(store);
 export { persistor, store };

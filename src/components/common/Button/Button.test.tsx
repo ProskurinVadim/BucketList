@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react';
 import Button from "./Button";
 import '@testing-library/jest-dom';
 
@@ -7,7 +7,7 @@ describe("Button tests", () => {
 	it("Rendered without text prop, should paste Add as default text", () => {
 		const onClick = jest.fn()
 		render(<Button onClick={ onClick }/>);
-		expect( screen.getByText(/Add/)).toBeInTheDocument();
+		expect(screen.getByText(/Add/)).toBeInTheDocument();
 	});
 
 

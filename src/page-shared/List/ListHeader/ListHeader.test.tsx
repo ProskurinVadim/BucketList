@@ -1,10 +1,10 @@
 import { render, screen, fireEvent, getByRole, getByPlaceholderText } from '@testing-library/react'
 import ListHeader from "./ListHeader";
 import '@testing-library/jest-dom';
+import { ISort } from "../../../types"
 
 
-
-const sort: any = { key: "name", direction: "asc" }
+const sort: ISort = { key: "name", direction: "asc", type: "" };
 
 describe("List headers tests", () => {
 	it("When we get loading false we make button active in other ways we disable", () => {

@@ -12,9 +12,10 @@ const renderWithContext = (element: ReactNode) => {
     return { store };
 
 }
+
 describe("Buck page tests", () => {
+    const { store }: any = renderWithContext(<BucketPage />);
     it("Test with no data, should display no items in list", () => {
-        const { store }: any = renderWithContext(<BucketPage />);
         expect(store.getState().buket_list.items.length).toEqual(0);
     });
 

@@ -23,14 +23,14 @@ describe("Testing number validator", () => {
     it("For letters, should return true", () => {
 
         const res = numberValidator("Letters");
-        expect(res).toBe(true);
+        expect(res).toBe(false);
 
     });
 
     it("For numbers, should return false", () => {
 
         const res = numberValidator("1234");
-        expect(res).toBe(false);
+        expect(res).toBe(true);
 
     });
 

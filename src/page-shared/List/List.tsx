@@ -19,7 +19,7 @@ interface IList {
 
 const List: FC<IList> = ({ onDelete, onFavorites, onDeleteAll, onAdd, items, loading }) => {
 	const { sort, setSort, data } = useSort(items);
-	const handelSort = (name:string) => setSort(name, "bucket")
+	const handelSort = (name: string) => setSort(name, "bucket");
 	return (
 		<div>
 			<h1 className=".fs-1 text pt-2 pb-2 text-primary">Welcome to your bucket</h1>

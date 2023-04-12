@@ -17,7 +17,7 @@ export default function (state: IBucketState = initialState, action: BucketType)
     switch (action.type) {
         case bucketActions.ADD_ITEM: {
             const { name, amount, image, description } = action.payload;
-            const newItem: any = { name, amount, image, description, favorites: false };
+            const newItem: IListItem = { name, amount, image, description, favorites: false };
             return {
                 ...state,
                 items: [...state.items, newItem]
@@ -56,7 +56,7 @@ export default function (state: IBucketState = initialState, action: BucketType)
             }
         }
         case bucketActions.FAVORITE_ITEM: {
-            const newItems: any = [...state.items]
+            const newItems: IListItem[] = [...state.items]
                 .map((elem: IListItem, i) =>
                     i === action.payload.id ? { ...elem, favorites: !elem.favorites } : elem);
             return {

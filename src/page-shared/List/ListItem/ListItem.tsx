@@ -31,16 +31,18 @@ const ListItem: FC<IItem> = ({ onFavorites, onDelete, item }) => {
                     <Image src={image} className="w-75 h-75" role="image" />
                 </Col>
                 <Col xs lg="8" className="mh-100">
-                    <p className="overflow-hidden text-secondary" style={{ height:100 }}>{description}</p>
+                    <p className="overflow-hidden text-secondary" style={{ height: 100 }}>{description}</p>
                 </Col>
                 <Col className="text-end">
-                    <Star className="fs-2 me-3 d-block" favorites={favorites} onClick={onFavorites} />
+                    <Star className="fs-2 me-3 d-block " favorites={favorites} onClick={onFavorites} />
                     <Trash className="fs-2 d-block me-3" onClick={onDelete} />
                 </Col>
             </Row>
-            
+
         </ListGroup.Item>
     )
 }
 
+
 export default ListItem
+
