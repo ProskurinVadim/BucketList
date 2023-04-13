@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import Star from "./Star";
 import '@testing-library/jest-dom';
 
-describe("Test filled Start icon", () => {
+describe("Start test", () => {
 	it("should return different icon for different type of favor", () => {
 		const onClick = jest.fn();
 		const { rerender } = render(<Star favorites={true} onClick={onClick}/>);

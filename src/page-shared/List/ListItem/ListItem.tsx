@@ -14,8 +14,9 @@ interface IItem {
 
 const ListItem: FC<IItem> = ({ onFavorites, onDelete, item }) => {
     const { name, favorites, amount, image, description }: IListItem = item;
+    // Delete unused height and check for image
     return (
-        <ListGroup.Item style={{ height: 200}}>
+        <ListGroup.Item>
 
             <Row>
                 <Col className="text-dark fs-4">
@@ -26,22 +27,22 @@ const ListItem: FC<IItem> = ({ onFavorites, onDelete, item }) => {
                 </Col>
             </Row>
             <Row className="justify-content-between pt-3 pb-3">
-                {image &&
-                    <Col>
+                <Col>
                     <Image src={image} className="w-75 h-75" role="image" />
-                    </Col>
-                }
+                </Col>
                 <Col xs lg="8" className="mh-100">
-                    <p className="overflow-hidden text-secondary" style={{ height:100 }}>{description}</p>
+                    <p className="overflow-hidden text-secondary" style={{ height: 100 }}>{description}</p>
                 </Col>
                 <Col className="text-end">
-                    <Star className="fs-2 me-3 d-block" favorites={favorites} onClick={onFavorites} />
+                    <Star className="fs-2 me-3 d-block " favorites={favorites} onClick={onFavorites} />
                     <Trash className="fs-2 d-block me-3" onClick={onDelete} />
                 </Col>
             </Row>
-            
+
         </ListGroup.Item>
     )
 }
 
+
 export default ListItem
+

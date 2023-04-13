@@ -47,8 +47,8 @@ export const addItem = (name: string, amount: number) => async (dispatch: Dispat
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
         });
         const openai = new OpenAIApi(configuration);
-        const description: any = await generateDescription(name, openai);
-        const image: any = await generateImage(name, openai);
+        const description: string = await generateDescription(name, openai);
+        const image: string = await generateImage(name, openai);
 
         dispatch(loadbucketAction(false));
         dispatch(addBucketAction(name, amount, description, image));
@@ -80,3 +80,5 @@ const favorbucketAction = (id: number): ItemsFavor => ({ type: bucketActions.FAV
 const deletebucketAction = (id: number): ItemsDelete => ({ type: bucketActions.DELETE_ITEM, payload: { id } });
 const deleteAllBucketAction = (): ItemsDeleteAll => ({ type: bucketActions.DELETE_ALL });
 const setErrorActions = (error: string): ItemsError => ({ type: bucketActions.SET_ITEM_ERROR, payload: { error } });
+
+export type DispatchBucetsType= typeof addItem | typeof deleteItem | typeof deleteAllItems | typeof flavorItems

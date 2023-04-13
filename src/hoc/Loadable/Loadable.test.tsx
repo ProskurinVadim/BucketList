@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import Loadable from "./";
 import '@testing-library/jest-dom';
 
-describe("Test Loading HOC ", () => {
+describe("Loading HOC test", () => {
 	it("should return loading when it's loading and Elem when stops", () => {
 		const { rerender } = render(<Loadable loading={true}>Elem</Loadable>);
 		expect(screen.getByText(/Loading.../)).toBeInTheDocument();

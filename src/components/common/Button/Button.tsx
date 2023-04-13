@@ -12,7 +12,6 @@ interface IButton {
 }
 
 const Button: FC<IButton> = ({ onClick, text = "Add", className, ...rest }) => {
-
     return <BButton onClick={onClick} className={`${className}`} {...rest}>{text}</BButton>
 
 }

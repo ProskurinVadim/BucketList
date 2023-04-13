@@ -5,8 +5,6 @@ import '@testing-library/jest-dom';
 describe("Test spiner", () => {
 	it("should paste Loading...", () => {
 		render(<Spiner />);
-		expect(
-			screen.getByText(/Loading/)
-		).toBeInTheDocument();
+		expect(screen.getByText(/Loading/)).toBeInTheDocument();
 	});
 });

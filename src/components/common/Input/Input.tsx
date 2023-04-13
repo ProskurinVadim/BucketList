@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import Form from 'react-bootstrap/Form';
 
 interface IInput {
@@ -8,9 +8,7 @@ interface IInput {
     className?: string,
 }
 
-//<Form.Label htmlFor="disabledTextInput">Disabled input</Form.Label>
-
-const Input: FC<IInput> = ({ className, placeholder="Enter value", onChange, value }) => {
+const Input: FC<IInput> = ({ className, placeholder = "Enter value", onChange, value }) => {
     return (
         <Form.Group className={`${className}`}>
             <Form.Control role="input" placeholder={placeholder} onChange={onChange} value={value} />
@@ -19,3 +17,7 @@ const Input: FC<IInput> = ({ className, placeholder="Enter value", onChange, val
 }
 
 export default Input
+
+export const MemorizedInput = memo(Input, (prev: IInput, next: IInput) => {
+    return prev.value === next.value
+});

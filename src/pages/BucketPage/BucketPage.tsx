@@ -1,13 +1,17 @@
 import { FC, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { Dispatch } from "redux";
 import List from "../../page-shared/List";
 import Container from 'react-bootstrap/Container';
+import { RootState, RootDispatch, useAppDispatch } from "../../redux/store";
+import { DispatchBucetsType } from "../../redux/actions/bucketActions"
+import { BucketType } from "../../redux/actions/bucketActions/types";
+import { IListItem } from "../../types";
 import { deleteItem, flavorItems, deleteAllItems, addItem } from "../../redux/actions/bucketActions";
-
 
 const BucketPage: FC = () => {
 
-    const { items, loading } = useSelector((state: any) => state.buket_list);
+    const { items, loading } = useSelector<RootState, { loading: boolean, items: IListItem[] }>((state: any) => state.buket_list, shallowEqual);
 
     const dispatch: any = useDispatch();
 

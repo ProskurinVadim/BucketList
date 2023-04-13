@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import Condition, { If, Else, ElseIf } from "./Condition";
 import '@testing-library/jest-dom';
 
-describe("Test Condition HOC ", () => {
+describe("Condition HOC tests", () => {
 	it("should simulate work of if elseif else structure", () => {
 		const { rerender } = render(<Condition condition={true}>
 			<If>If</If>

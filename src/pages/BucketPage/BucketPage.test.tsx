@@ -13,41 +13,30 @@ const renderWithContext = (element: ReactNode) => {
 
 }
 
-describe("Test with no data", () => {
-    it("should display no items in list", () => {
-        const { store }: any = renderWithContext(<BucketPage />);
+describe("Buck page tests", () => {
+    const { store }: any = renderWithContext(<BucketPage />);
+    it("Test with no data, should display no items in list", () => {
         expect(store.getState().buket_list.items.length).toEqual(0);
     });
-});
 
-
-
-describe("Test loading", () => {
-    it("should display loading as true",  () => {
+    it("Test loading, should display loading as true", () => {
         const { store }: any = renderWithContext(<BucketPage />);
         act(() => {
             store.dispatch({ type: bucketActions.SET_ITEM_LOADING, payload: { loading: true } })
             expect(store.getState().buket_list.loading).toEqual(true);
         })
-    })
-       
-});
-
-
-describe("Test add item", () => {
-    it("should display loading add an item in list", () => {
+    });
+        
+    it("Test adding item, should display loading add an item in list", () => {
         const { store }: any = renderWithContext(<BucketPage />);
         act(() => {
             const item = { name: "test", amount: 1, image: "image", description: "desctiption" };
-            store.dispatch({ type: bucketActions.ADD_ITEM, payload:  item  });
+            store.dispatch({ type: bucketActions.ADD_ITEM, payload: item });
             expect(store.getState().buket_list.items.length).toEqual(1);
         });
     });
 
-});
-
-describe("Test delete item", () => {
-    it("should delete item", () => {
+    it("Test deleting item, should delete item", () => {
         const { store }: any = renderWithContext(<BucketPage />);
         act(() => {
             expect(store.getState().buket_list.items.length).toEqual(1);
@@ -55,24 +44,20 @@ describe("Test delete item", () => {
             expect(store.getState().buket_list.items.length).toEqual(0);
         });
     });
-});
 
-describe("Test delete all items", () => {
-    it("should delete all items", () => {
+    it("Test deleting all itemsTest deleting all items, should delete all items", () => {
         const { store }: any = renderWithContext(<BucketPage />);
         act(() => {
             const item = { name: "test", amount: 1, image: "image", description: "desctiption" };
             store.dispatch({ type: bucketActions.ADD_ITEM, payload: item });
             store.dispatch({ type: bucketActions.ADD_ITEM, payload: item });
             expect(store.getState().buket_list.items.length).toEqual(2);
-            store.dispatch({ type: bucketActions.DELETE_ALL});
+            store.dispatch({ type: bucketActions.DELETE_ALL });
             expect(store.getState().buket_list.items.length).toEqual(0);
         });
     });
-});
 
-describe("Test updete favorites", () => {
-    it("should updete flavor of ite,", () => {
+    it("Test updating favorites should updete flavor of ite,", () => {
         const { store }: any = renderWithContext(<BucketPage />);
         act(() => {
             const item = { name: "test", amount: 1, image: "image", description: "desctiption" };
@@ -82,5 +67,3 @@ describe("Test updete favorites", () => {
         });
     });
 });
-
-

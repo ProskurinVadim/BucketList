@@ -1,29 +1,35 @@
-import { FC } from "react";
+import { FC, memo } from "react";
+import "./index.css";
 import { BsArrowDownShort, BsArrowUpShort } from "react-icons/bs";
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 interface ISortField {
-    name: string,
+    name: string,   
     active?: "asc" | "desc" | false,
     setSort: (name: string) => void
 }
 
 const SortField: FC<ISortField> = ({ name, active, setSort }) => {
-    const renderTooltip = (props: any) => (
-        <span className={`fs-2 ${active ? "text-dark" : "text-muted"}`} {...props}>
-            {active === "asc" ? <BsArrowDownShort role="down" /> : <BsArrowUpShort role="up"/>}
-            </span>
-    );
     return (
-        <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
+        <div
+            className="sort-field"
+        >
             <p
-                className={`fs-3 ${active ? "text-dark" : "text-muted"}`}
+                className={`fs-3 text-capitalize ${active ? "text-dark" : "text-muted"}`}
                 onClick={() => setSort(name)}>
                 {name}
             </p>
-        </OverlayTrigger>
+
+            <span className="fs-3 text-muted arrow">
+                {active !== "asc" ? <BsArrowDownShort role="down" /> : <BsArrowUpShort role="up" />}
+            </span>
+            {active && <span className="fs-3 text-dark active">
+                {active === "asc" ? <BsArrowDownShort role="down" /> : <BsArrowUpShort role="up" />}
+            </span>}
+        </div>
         
     )
 }
 
-export default SortField    
+export default memo(SortField, (prev: ISortField, next: ISortField) => {
+    return prev.active === next.active && next.name === prev.name
+})

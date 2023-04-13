@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import Trash from "./Trash";
 import '@testing-library/jest-dom';
 
-describe("Test trash icon", () => {
+describe("Trash icon test trash", () => {
 	it("should find icon", () => {
 		const onClick = jest.fn();
 		render(<Trash onClick={onClick}/>);
