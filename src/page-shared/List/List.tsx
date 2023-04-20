@@ -22,12 +22,11 @@ const List: FC<IList> = ({ onDelete, onFavorites, onDeleteAll, onAdd, items, loa
 	const handelSort = (name: string) => setSort(name, "bucket");
 	return (
 		<div>
-			<h1 className=".fs-1 text pt-2 pb-2 text-primary">Welcome to your bucket</h1>
 			<ListHeader sort={sort} setSort={handelSort} onAdd={onAdd} loading={loading}/>
 			<Loadable loading={loading}>
 				<Condition condition={Boolean(data.length)}>
 					<If>
-						<ListGroup variant="flush" className="overflow-auto" style={{ height: "50vh" }}>
+						<ListGroup variant="flush" className="overflow-auto" style={{ height: "55vh", }}>
 							{data.map((item: IListItem, i: number) =>
 								<ListItem
 									onDelete={() => onDelete(i)}
@@ -37,7 +36,7 @@ const List: FC<IList> = ({ onDelete, onFavorites, onDeleteAll, onAdd, items, loa
 							)}
 						</ListGroup>
 						<div className="d-grid gap-2 col-2 mx-auto">
-							<Button className="btn btn-primary btn-lg fs-3 mt-2" onClick={onDeleteAll} text="Delete All" disabled={!data.length} />
+							<Button className="fs-5 mt-2 btn-danger" onClick={onDeleteAll} text="Delete All" disabled={!data.length} />
 						</div>
 					</If>
 					<Else><h2 className="fs-2 text-center mb-5">No items in List</h2></Else>

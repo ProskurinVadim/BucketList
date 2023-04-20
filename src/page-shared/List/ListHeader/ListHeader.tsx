@@ -37,15 +37,15 @@ const ListHeader: FC<IListHeader> = ({ setSort, sort, onAdd, loading }) => {
 
     return (
         <div>
-            <h2 className={".fs-3 text text-secondary mt-3"}>Add product in your bucket:</h2>
+            <h2 className={"fs-3 text text-light mt-3"}>Add product in your bucket:</h2>
             <div className="d-flex align-items-center mt-4">
                 {/*memorized inputs for stoping updates*/}
                 <MemorizedInput {...nameBind} placeholder="Enter name" className="me-1"/>
                 <MemorizedInput {...amountBind} placeholder="Enter amount" className="me-1 ms-1" />
-                <Button onClick={onSubmit} text="Add Item" role="submit-button" className="ms-1" disabled={loading}/>
+                <Button onClick={onSubmit} text="Add Item" role="submit-button" className="ms-1 btn-success" disabled={loading}/>
             </div>
             <p role="error" className={`mt-3 fs-5 text text-danger  ${error ? "visible" : "invisible"}`}>Sorry {error && error}</p>
-            <h2 className={".fs-3 text text-secondary mt-1"}>Choose sort</h2>
+            <h2 className={".fs-3 text text-light mt-1"}>Choose sort</h2>
             <div className="d-flex justify-content-between">
                 {/*memorized SortFields for stoping updates*/}
                 {sortNames.map((elem, i) =>

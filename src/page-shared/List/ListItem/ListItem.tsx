@@ -16,22 +16,22 @@ const ListItem: FC<IItem> = ({ onFavorites, onDelete, item }) => {
     const { name, favorites, amount, image, description }: IListItem = item;
     // Delete unused height and check for image
     return (
-        <ListGroup.Item>
+        <ListGroup.Item style={{ background: "linear-gradient(to right, rgba(126, 64, 246, 1), rgba(80, 139, 252, 1)" }}>
 
             <Row>
-                <Col className="text-dark fs-4">
-                    Product: {name}
+                <Col className="fs-5">
+                    Name: {name}
                 </Col>
-                <Col className="text-end text-dark fs-4">
+                <Col className="text-end fs-5">
                     Amount: {amount}
                 </Col>
             </Row>
-            <Row className="justify-content-between pt-3 pb-3">
+            <Row className="justify-content-between pt-3">
                 <Col>
                     <Image src={image} className="w-75 h-75" role="image" />
                 </Col>
                 <Col xs lg="8" className="mh-100">
-                    <p className="overflow-hidden text-secondary" style={{ height: 100 }}>{description}</p>
+                    <p className="overflow-hidden text-light" style={{ height: 100 }}>{description}</p>
                 </Col>
                 <Col className="text-end">
                     <Star className="fs-2 me-3 d-block " favorites={favorites} onClick={onFavorites} />

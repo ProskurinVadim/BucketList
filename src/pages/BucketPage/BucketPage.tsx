@@ -21,7 +21,7 @@ const BucketPage: FC = () => {
     const handelFlavor = useCallback((id: number) => dispatch(flavorItems(id)),[]);
 
     return (
-        <div className="pt-5 pb-5 vh-100 overflow-hidden" style={{ background: 'linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147)) ' }}>
+        <div className="pt-5 pb-5 vh-100 overflow-hidden" style={{ background: 'linear-gradient(to right, rgba(126, 64, 246, 1), rgba(80, 139, 252, 1))' }}>
             <Container>
                 <List
                         loading={loading}
