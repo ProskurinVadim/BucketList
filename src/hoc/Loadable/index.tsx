@@ -9,10 +9,10 @@ interface ILoadable {
     children: React.ReactNode,
 }
 
-const Loadable: FC<ILoadable> = ({loading, children}) => (
+const Loadable: FC<ILoadable> = ({ loading, children }) => (
     <Condition condition={loading}>
         <If>
-            <Spiner />
+            <div className="text-center mt-5"><Spiner /></div>
         </If>
         <Else>
             {children || null}
